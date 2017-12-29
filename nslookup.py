@@ -2,6 +2,7 @@ import os
 import socket
 import scanning
 import toolkit
+import platform
 
 from colorama import Fore, init
 init()
@@ -9,7 +10,7 @@ init()
 def nslookupscan():
     print "\n--->Nslookup type=(A, ANY, CNAME, MX, NS, PTR, SOA, SRV)\n"
     commands = raw_input("[!] Insert option(s): nslookup ")
-    path=raw_input("[!] dns/host/ip: ")
+    path=raw_input("[!] dns/host: ")
     try:
         ip = socket.gethostbyname(path)
         print (Fore.GREEN+"[*] Scanning "+ip+"\n")
@@ -31,7 +32,8 @@ def nslookupscan():
         elif(sp=="N" or sp=="NO" or sp=="No" or sp=="no" or sp=="nO" or sp=="n"):
             exit(0)
     except:
-        print "Error"
+        if platform.system() == "Linux"or platform.system() == "Unix":
+            print "Error this module doesn't works on linux"
 
 def nslookupscanOPT(commands,path):
     print "\n--->Nslookup type=(A, ANY, CNAME, MX, NS, PTR, SOA, SRV)\n"
@@ -56,5 +58,7 @@ def nslookupscanOPT(commands,path):
         elif(sp=="N" or sp=="NO" or sp=="No" or sp=="no" or sp=="nO" or sp=="n"):
             exit(0)
     except:
-        print "Error"
+        if platform.system() == "Linux"or platform.system() == "Unix":
+            print "Error this module doesn't works on linux"
+
     

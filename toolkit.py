@@ -157,4 +157,4 @@ if __name__ == '__main__':
         if start != 0:
             toolkit()
         else:
-            print "\NFirst Execute setup.py"
+            print "\nFirst Execute setup.py"
