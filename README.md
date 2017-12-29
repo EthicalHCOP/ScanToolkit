@@ -28,6 +28,6 @@ Examples:
   Nslookup:                      toolkit.py -M 3 -H <ip_address> -P A,ANY,CNAME,MX,NS,PTR,SOA,SRV
   IpGeolocation: MyIp Address    toolkit.py -M 4
                  Specific Ip     toolkit.py -M 4 -H <ip_address>
-  Shodan Api     Search   		 toolkit.py -M 5 -Q "Query"
-				 Host Scanner    toolkit.py -M 5 -H <ip_address>
+  Shodan Api     Search          toolkit.py -M 5 -Q "Query"
+		 Host Scanner    toolkit.py -M 5 -H <ip_address>
 ```
