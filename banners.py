@@ -5,20 +5,24 @@ from colorama import Fore, init
 
 init()
 
-version = "v.1.1"
+version = "v.1.2"
 
 def randomBanner():
-    ban = random.randrange(1,7)
+    ban = random.randrange(1,10)
     if ban == 1  or ban == 2:
         banner1()
     elif ban == 3 or ban == 4:
         banner2()
-    else:  
+    elif ban == 5 or ban == 6:
         banner3()
+    elif ban == 7 or ban == 8:
+        banner4()    
+    else:  
+        banner5()
 
 
 def banner1():
-    print "_______________________________________________________________________________"
+    print "_______________________________________________________________________________"+Fore.LIGHTGREEN_EX
     print "                                                                               "
     print "                 ========    =======    =======    ===      ==                 "
     print "                 ==          ==         ==   ==    == ==    ==                 "
@@ -35,7 +39,7 @@ def banner1():
     print "    ==       ==      ==   ==      ==    ==       ==  ==      ==       ==       "
     print "    ==       ==      ==   ==      ==    ==       ==   ==     ==       ==       "
     print "    ==       ==      ==   ==      ==    ==       ==    ==    ==       ==       "
-    print "    ==        ========     ========     ======   ==     ==   ==       ==  "+version+""
+    print "    ==        ========     ========     ======   ==     ==   ==       ==  "+Fore.RESET+version+""
     print "__________________________________ScanToolkit__________________________________"
     print "|      "+Fore.RED+"A toolkit written on python and made only for educational purposes."+Fore.RESET+"    |"
     print "|By: "+Fore.BLUE+"EthicalHackingCOP "+Fore.RESET+"Github:"+Fore.BLUE+"https://github.com/EthicalHackingCOP/ScanToolkit"+Fore.RESET+"|"
@@ -98,6 +102,47 @@ def banner3():
     print "                      |__| |__|                                                "
     print "                      (__) (__)                                                "
     print "                                                                               "
+    print "__________________________________ScanToolkit__________________________________"
+    print "|      "+Fore.RED+"A toolkit written on python and made only for educational purposes."+Fore.RESET+"    |"
+    print "| By:"+Fore.BLUE+"EthicalHackingCOP "+Fore.RESET+"Github:"+Fore.BLUE+"https://github.com/EthicalHackingCOP/ScanToolkit"+Fore.RESET+"|"
+    print "|_____________________________________________________________________________|"
+
+def banner4():
+    print "_______________________________________________________________________________________________"
+    print Fore.LIGHTGREEN_EX+"                                              /$$                      /$$/$$      /$$  /$$    "
+    print "                                             | $$                     | $| $$     |__/ | $$    "
+    print "  /$$$$$$$ /$$$$$$$ /$$$$$$ /$$$$$$$        /$$$$$$   /$$$$$$  /$$$$$$| $| $$   /$$/$$/$$$$$$  "
+    print " /$$_____//$$_____/|____  $| $$__  $$      |_  $$_/  /$$__  $$/$$__  $| $| $$  /$$| $|_  $$_/  "
+    print "|  $$$$$$| $$       /$$$$$$| $$  \ $$        | $$   | $$  \ $| $$  \ $| $| $$$$$$/| $$ | $$    "
+    print " \____  $| $$      /$$__  $| $$  | $$        | $$ /$| $$  | $| $$  | $| $| $$_  $$| $$ | $$ /$$"
+    print " /$$$$$$$|  $$$$$$|  $$$$$$| $$  | $$        |  $$$$|  $$$$$$|  $$$$$$| $| $$ \  $| $$ |  $$$$/"
+    print "|_______/ \_______/\_______|__/  |__/         \___/  \______/ \______/|__|__/  \__|__/  \____/  "
+    print "                                                                                        "+version+Fore.RESET
+    print "__________________________________________ScanToolkit__________________________________________"
+    print "|              "+Fore.RED+"A toolkit written on python and made only for educational purposes."+Fore.RESET+"            |"
+    print "|         By:"+Fore.BLUE+"EthicalHackingCOP "+Fore.RESET+"Github:"+Fore.BLUE+"https://github.com/EthicalHackingCOP/ScanToolkit"+Fore.RESET+"        |"
+    print "|_____________________________________________________________________________________________|"
+
+def banner5():
+    print "_______________________________________________________________________________"+Fore.CYAN
+    print "                     \./                            |>>>                       "
+    print "                        \./                         |                          "
+    print "                   /'\                |>>>      _  _|_  _         |>>>         "
+    print Fore.LIGHTGREEN_EX+"  ____"+Fore.CYAN+"                                |        |;| |;| |;|        |            "
+    print Fore.LIGHTGREEN_EX+" / ___|  ___ __ _ _ __"+Fore.CYAN+"            _  _|_  _    \\.    .  /    _  _|_  _        "
+    print Fore.LIGHTGREEN_EX+" \___ \ / __/ _` | '_ \\"+Fore.CYAN+"          |;|_|;|_|;|    \\:. ,  /    |;|_|;|_|;|       "
+    print Fore.LIGHTGREEN_EX+"  ___) | (_| (_| | | | |"+Fore.CYAN+"         \\..      /    ||;   . |    \\.    .  /       "
+    print Fore.LIGHTGREEN_EX+" |__________\__,_|_|_|_|  "+Fore.LIGHTBLUE_EX+" _ _ "+Fore.CYAN+"   \\.  ,  /     ||:  .  |     \\:  .  /        "
+    print Fore.LIGHTBLUE_EX+"   |_   ____   ___ | | | _(_| |_"+Fore.CYAN+"   ||:   |_   _ ||_ . _ | _   _||:   |         "
+    print Fore.LIGHTBLUE_EX+"     | |/ _ \ / _ \| | |/ | | __|"+Fore.CYAN+"  ||:  .|||_|;|_|;|_|;|_|;|_|;||:.  |         "
+    print Fore.LIGHTBLUE_EX+"     | | (_) | (_) | |   <| | |_ "+Fore.CYAN+"  ||:   ||.    .     .      . ||:  .|         "
+    print Fore.LIGHTBLUE_EX+"     |_|\___/ \___/|_|_|\_|_|\__|"+Fore.CYAN+"  ||: . || .     . .   .  ,   ||:   |         "
+    print "              "+Fore.LIGHTRED_EX+version+Fore.CYAN+"                ||:   ||:  ,  _______   .   ||: , |         "
+    print "                                   ||:   || .   /+++++++\    . ||:   |         "
+    print "                                   ||:   ||.    |+++++++| .    ||: . |         "
+    print Fore.GREEN+"                                __"+Fore.CYAN+" ||: . ||: ,  |+++++++|.  . _||_   |         "
+    print Fore.GREEN+"      ,+-.,__    ,-~-_.~-__--`~    '--~~__"+Fore.CYAN+"|.    |+++++__|"+Fore.GREEN+"----~    ~`---,__       "
+    print "---*''       \"\"''                         ~---__"+Fore.CYAN+"|"+Fore.GREEN+",--~'                    '\"\""+Fore.RESET
     print "__________________________________ScanToolkit__________________________________"
     print "|      "+Fore.RED+"A toolkit written on python and made only for educational purposes."+Fore.RESET+"    |"
     print "| By:"+Fore.BLUE+"EthicalHackingCOP "+Fore.RESET+"Github:"+Fore.BLUE+"https://github.com/EthicalHackingCOP/ScanToolkit"+Fore.RESET+"|"

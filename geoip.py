@@ -7,9 +7,15 @@ def GeoIp():
 	print "Insert Ip To Scan. (No Ip for My Ip Address)"
 	host = raw_input("IPv4: ");
 	if host != "":
-		remoteIpOPT(host)
+		try:
+			remoteIpOPT(host)
+		except Exception, e:
+            print "\n[!] Error: "+str(e)
 	else:
-		myIpOPT()
+		try:
+			myIpOPT()
+		except Exception, e:
+            print "\n[!] Error: "+str(e)
 
 def remoteIpOPT(host):
 	request = requests.get('http://ipinfo.io/'+host+'/json').text

@@ -1,5 +1,5 @@
 ﻿# ScanToolkit
-*Is a toolkit capable to realize ports scan, host discover ,nslookup service, IPv4 Geolocation and Shodan Api*
+*Is a toolkit capable to realize ports scan, host discover ,nslookup service, IPv4 Geolocation, Shodan Api and more.*
 
 ```[javascript]
 [First Configuration] Usage: setup.py 
@@ -11,6 +11,7 @@ Menu
 3. NSlookup Windows type=(A, ANY, CNAME, MX, NS, PTR, SOA, SRV).
 4. IPv4 Geolocation.
 5. Shodan Api.
+6. DNS Records.
 
 Options:
   -h, --help                               Show this help message and exit
@@ -28,6 +29,7 @@ Examples:
   Nslookup:                      toolkit.py -M 3 -H <ip_address> -P A,ANY,CNAME,MX,NS,PTR,SOA,SRV
   IpGeolocation: MyIp Address    toolkit.py -M 4
                  Specific Ip     toolkit.py -M 4 -H <ip_address>
-  Shodan Api     Search          toolkit.py -M 5 -Q "Query"
+  Shodan Api:    Search          toolkit.py -M 5 -Q "Query"
 		 Host Scanner    toolkit.py -M 5 -H <ip_address>
+  DNS Records:                   toolkit.py -M 6 -H <DNS>
 ```
