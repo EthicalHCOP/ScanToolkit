@@ -60,5 +60,3 @@ def nslookupscanOPT(commands,path):
     except:
         if platform.system() == "Linux"or platform.system() == "Unix":
             print "Error this module doesn't works on linux"
-
-    

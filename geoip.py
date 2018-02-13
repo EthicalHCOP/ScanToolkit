@@ -10,12 +10,12 @@ def GeoIp():
 		try:
 			remoteIpOPT(host)
 		except Exception, e:
-            print "\n[!] Error: "+str(e)
+			print "\n[!] Error: "+str(e)
 	else:
 		try:
 			myIpOPT()
 		except Exception, e:
-            print "\n[!] Error: "+str(e)
+			print "\n[!] Error: "+str(e)
 
 def remoteIpOPT(host):
 	request = requests.get('http://ipinfo.io/'+host+'/json').text

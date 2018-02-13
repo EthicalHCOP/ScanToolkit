@@ -135,6 +135,7 @@ def toolkit():
             try:
                 dns = dns.split(",")
                 for x in dns:
+                    banners.randomBanner()
                     dnsrecords.DNSRecordOpt(x)
             except Exception, e:
                 print "\n[!] Error: "+str(e)
