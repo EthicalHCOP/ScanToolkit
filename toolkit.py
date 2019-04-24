@@ -11,7 +11,7 @@ import dnsrecords
 from socket import *
 from threading import *
 def toolkit():
-    Keys = [] 
+    Keys = [['Shodan_Api_Key', 'none']] 
     parser = optparse.OptionParser('usage %prog '+\
 		'-M <Menu option> -P <Parameters>')
     parser.add_option('-M','--Menu', dest='MenuOption', type='string', \
@@ -26,6 +26,8 @@ def toolkit():
 		help='Insert parameters separated by comma')
     parser.add_option('-Q','--Query', dest='query', type='string', \
 		help='"Shodan Query into quotes"')
+    parser.add_option('-F', '--flag', dest='flag', type='string', \
+                      help='"tcp or udp scan"')
     
     (options, args) = parser.parse_args()
     try: 
@@ -56,21 +58,17 @@ def toolkit():
     elif(Moption == "2"):
         try:
             host = str(options.host)
-            ports = str(options.port)      
+            ports = str(options.port)
+            flag = str(options.flag)
         except Exception, e:
             print "\n[!] Error: "+str(e)
+        banners.randomBanner()
+
         if ports != "None":
-            try:
-                banners.randomBanner()
-                scanning.scanP(host,ports)
-            except Exception, e:
-                print "\n[!] Error: "+str(e)
+            scanning.scaner(host,ports,flag)
         else:
-            try:
-                banners.randomBanner()
-                scanning.scan(host)
-            except Exception, e:
-                print "\n[!] Error: "+str(e)
+            scanning.scaner(host,"",flag)
+
         exit(0)
     elif(Moption == "3"):
         try:
@@ -163,7 +161,7 @@ def toolkit():
     if(menu=="1"):
         netscan.netscan()
     elif(menu=="2"): 
-        scanning.scanNA()
+        scanning.scaner("","","")
     elif(menu=="3"):
         nslookup.nslookupscan()
     elif(menu=="4"):
@@ -194,7 +192,6 @@ def sos():
     print "\t-- Nslookup \n\t\t\t\t\ttoolkit.py -M 3 -H <DNS> -P A,ANY,CNAME,MX,NS,PTR,SOA,SRV"
     print "\t-- IpGeolocation\n\t\tMyIp Address\t\ttoolkit.py -M 4 "
     print "\t\tSpecific Ip\t\ttoolkit.py -M 4 -H <ip_address>"
-    print "\t-- Shodan Api\n\t\tShodan Search\t\ttoolkit.py -M 5 -Q \"Query\""
     print "\t\tShodan Host Scanner\ttoolkit.py -M 5 -H <ip_address>"
     print "\t-- DNS Records \n\t\t\t\t\ttoolkit.py -M 6 -H <DNS>"
     

@@ -49,7 +49,7 @@ def pasteKeys():
         key = raw_input(Fore.GREEN+"[+]"+Fore.CYAN+" Insert your "+a+": "+Fore.RESET)
         keys.append([a,key])
     Data[13]="    Keys = "+str(keys)+" \n"
-    Data[201]= "        start = 1\n"
+    Data[198]= "        start = 1\n"
     write = open(fileread,'w')
     item = 0
     for y in Data:
