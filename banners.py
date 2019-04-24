@@ -1,5 +1,6 @@
-
 # -*- coding: UTF-8 -*-
+#!/usr/bin/python
+
 import random
 from colorama import Fore, init
 

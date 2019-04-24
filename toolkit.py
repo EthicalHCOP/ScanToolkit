@@ -1,3 +1,6 @@
+# -*- coding: UTF-8 -*-
+#!/usr/bin/python
+
 import scanning
 import netscan
 import nslookup
@@ -26,7 +29,7 @@ def toolkit():
 		help='Insert parameters separated by comma')
     parser.add_option('-Q','--Query', dest='query', type='string', \
 		help='"Shodan Query into quotes"')
-    parser.add_option('-F', '--flag', dest='flag', type='string', \
+    parser.add_option('-F', '--Flag', dest='flag', type='string', \
                       help='"tcp or udp scan"')
     
     (options, args) = parser.parse_args()

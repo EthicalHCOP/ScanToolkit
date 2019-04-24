@@ -1,3 +1,6 @@
+# -*- coding: UTF-8 -*-
+#!/usr/bin/python
+
 import banners
 import time
 from colorama import Fore, init

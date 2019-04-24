@@ -1,3 +1,6 @@
+# -*- coding: UTF-8 -*-
+#!/usr/bin/python
+
 import requests
 from colorama import Fore, init
 init()
