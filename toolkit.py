@@ -13,8 +13,8 @@ import dnsrecords
 
 from socket import *
 from threading import *
-def toolkit():
-    Keys = [['Shodan_Api_Key', 'none']] 
+def toolkit(api_keys):
+    Keys = api_keys
     parser = optparse.OptionParser('usage %prog '+\
 		'-M <Menu option> -P <Parameters>')
     parser.add_option('-M','--Menu', dest='MenuOption', type='string', \
@@ -106,22 +106,21 @@ def toolkit():
     elif(Moption == "5"):
         query = str(options.query)
         host = str(options.host)
-        key = Keys[0]
-        if key == "":
-            print "Please insert the shodan_api_key on setup.py file."
+        if Keys['Shodan_Api_Key'] == "":
+            print "Please insert the shodan_api_key on data.json file."
             exit(0)
         if host != "None" and query != "None":
             print "Error. Please insert a correct query"
         elif host != "None":
             try:
                 banners.randomBanner()
-                shod.searchHost(host,key[1])
+                shod.searchHost(host,Keys['Shodan_Api_Key'])
             except:
                 print "Error. Please insert correctly a query"
         elif query != "None":
             try:
                 banners.randomBanner()
-                shod.searchQuery(query,key[1])
+                shod.searchQuery(query,Keys['Shodan_Api_Key'])
             except:
                 print "Error. Please insert correctly a query"
         else:
@@ -170,8 +169,7 @@ def toolkit():
     elif(menu=="4"):
         geoip.GeoIp()
     elif(menu=="5"):
-        key = Keys[0]
-        shod.shodanS(key[1])
+        shod.shodanS(Keys['Shodan_Api_Key'])
     elif(menu=="6"):
         dnsrecords.DNSRecord()
     elif(menu=="Exit" or menu=="EXIT" or menu=="exit"):
@@ -199,11 +197,14 @@ def sos():
     print "\t-- DNS Records \n\t\t\t\t\ttoolkit.py -M 6 -H <DNS>"
     
 if __name__ == '__main__':
-        start = 0
-        if start != 0:
-            try:
-                toolkit()
-            except:
-                exit(0)
-        else:
-            print "\nFirst Execute setup.py"
+    file = "data.json"
+    setup_data = eval(open(file, 'r').read())
+    start = setup_data['starting']
+    if start != 0:
+        try:
+            toolkit(setup_data['keys'])
+        except:
+            exit(0)
+    else:
+        print "\nFirst Execute setup.py"
+
