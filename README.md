@@ -2,7 +2,9 @@
 *Is a toolkit capable to realize ports scan, host discover ,nslookup service, IPv4 Geolocation, Shodan Api and more.*
 
 ```[javascript]
-[First Configuration] Usage: setup.py 
+[First Configuration] 
+	Requeriments: pip install -r requeriments.txt
+	Usage: setup.py
 Usage: toolkit.py -M <Menu option> <Option>
 
 Menu
