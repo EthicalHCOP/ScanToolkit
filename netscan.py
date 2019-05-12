@@ -5,55 +5,39 @@ import os
 import sys
 import platform
 import socket
+import netifaces
 
 from datetime import datetime
 from colorama import Fore, init
 init()
 
-def netscan():
+def netscan(start,end):
+    ifc = []
+    ifaces_allowed = ['wlan0','eth0','tun0']
+    interfaces = netifaces.interfaces()
+    for x in interfaces:
+        if x in ifaces_allowed:
+            dts = []
+            dts.append(x)
+            try:
+                datos = netifaces.ifaddresses(x)
+                variables = datos.keys()
+                dts.append(datos[2][0]['addr'])
+                ifc.append(dts)
+            except:
+                continue
     print (Fore.YELLOW+"\n--> Host Discover")
-    pc_name = socket.gethostname()
-    pc_ip = socket.gethostbyname(pc_name)
-    print ("You IPv4 is: "+Fore.YELLOW+pc_ip)
-    ip = pc_ip
-    ipDividida = ip.split('.')
-     
-    try:
-        red = ipDividida[0]+'.'+ipDividida[1]+'.'+ipDividida[2]+'.'
-        comienzo = int(input("Insert the first number to start the scan: "))
-        fin = int(input("Insert the last number to finish the scan: "))
-    except:
-        print(Fore.RED+"[!] Error")
-        sys.exit(1)
-     
-     
-    if (platform.system()=="Windows"):
-        ping = "ping -n 1"
-    else :
-        ping = "ping -c 1"
-        
-    tiempoInicio = datetime.now()
-    print ("\n"+Fore.GREEN+"[*] Starting Scanner")
-    print (Fore.GREEN+"[*] Scanning from "+red+str(comienzo)+" to "+red+str(fin))
+    itr = 1
     
-    for subred in range(comienzo, fin+1):
-        direccion = red+str(subred)
-        response = os.popen(ping+" "+direccion)
-        for line in response.readlines():
-            if ("ttl" in line.lower()):
-                '''NameHost = socket.gethostbyaddr(direccion)
-                print"[+] "+direccion+"/"+NameHost[0]+" Host is Active "'''
-                print(Fore.GREEN + "[+] "+Fore.CYAN+ direccion +Fore.WHITE +" / Host is Active ")
-                break
-                
-    tiempoFinal = datetime.now()
-    tiempo = tiempoFinal - tiempoInicio
-    print (Fore.GREEN+"[*] Scanner finished. The estimated time was"+ Fore.RED+" %s"%tiempo)
-
-def netscanOPT(start,end):
-    print (Fore.YELLOW+"\n--> Host Discover")
-    pc_name = socket.gethostname()
-    pc_ip = socket.gethostbyname(pc_name)
+    safe_ifc = ifc
+    for x in ifc:
+        print "---------------|"+str(itr)+"|---------------"
+        print "|\t"+x[0]+": "+x[1]+"\t|"
+        print "---------------------------------"
+        itr += 1
+    print (Fore.YELLOW+"\n[+] Select a interface number to scan: ")
+    iface = input()
+    pc_ip = safe_ifc[iface-1][1]
     print ("You IPv4 is: "+Fore.YELLOW+pc_ip)
     ip = pc_ip
     ipDividida = ip.split('.')
@@ -75,13 +59,11 @@ def netscanOPT(start,end):
     print (Fore.GREEN+"[*] Scanning from "+red+str(start)+" to "+red+str(end))
 
 
-    for subred in range(start, end+1):
+    for subred in range(int(start), int(end)+1):
         direccion = red+str(subred)
         response = os.popen(ping+" "+direccion)
         for line in response.readlines():
             if ("ttl" in line.lower()):
-                '''NameHost = socket.gethostbyaddr(direccion)
-                print"[+] "+direccion+"/"+NameHost[0]+" Host is Active "'''
                 print(Fore.GREEN + "[+] "+Fore.CYAN+ direccion +Fore.WHITE +" / Host is Active ")
                 break
                 

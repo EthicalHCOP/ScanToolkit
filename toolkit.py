@@ -46,15 +46,15 @@ def toolkit(api_keys):
             exit(0)
         if parameters[0] != "None":   
             try:
-                banners.randomBanner()
-                netscan.netscanOPT(int(parameters[0]),int(parameters[1]))
+                #banners.randomBanner()
+                netscan.netscan(int(parameters[0]),int(parameters[1]))
             except Exception, e:
                 print "\n[!] Error: "+str(e)
             exit(0)
         else:
             try:
                 banners.randomBanner()
-                netscan.netscanOPT(1,255)
+                netscan.netscan(2,254)
             except Exception, e:
                 print "\n[!] Error: "+str(e)
             exit(0)
@@ -161,7 +161,7 @@ def toolkit(api_keys):
         print "\n[!] Error: "+str(e)
         exit(0)
     if(menu=="1"):
-        netscan.netscan()
+        netscan.netscan("2","254")
     elif(menu=="2"): 
         scanning.scaner("","","")
     elif(menu=="3"):
