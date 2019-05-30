@@ -16,7 +16,17 @@ def netscan(start,end):
     ifaces_allowed = ['wlan0','eth0','tun0']
     interfaces = netifaces.interfaces()
     for x in interfaces:
-        if x in ifaces_allowed:
+        if x in ifaces_allowed and platform.system()!="Windows":
+            dts = []
+            dts.append(x)
+            try:
+                datos = netifaces.ifaddresses(x)
+                variables = datos.keys()
+                dts.append(datos[2][0]['addr'])
+                ifc.append(dts)
+            except:
+                continue
+        else:
             dts = []
             dts.append(x)
             try:
